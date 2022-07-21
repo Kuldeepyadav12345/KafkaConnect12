@@ -1,1 +1,18 @@
 --
+1 Goto the folder kafkaConnect_01
+2 Open cmd from this folder
+3 Once cmd is opened type   docker login   in cmd and press enter. now you are logged into the docker
+4 Then type docker-compose up -d   this command will download all the images and will create a container.
+5 Once your download is done check for the status of all the containers by typing docker ps   .You can also goto docker desktop then 
+containers and check the status of your container
+6 Now we have to create the source connector for postgres sql. The configuration is given in debezium.json file 
+7 To create a source connector we have to type 
+
+curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" http://localhost:8083/connectors/ --data "@debezium.json"
+
+The above command will create a source connector.You will see a message as Created on the cmd. You could verify it by visiting http://localhost:8083/connectors 
+on this port we are running the debezium connector. You will see ["exampledb-connector"] created on your browser. 
+
+8 
+9
+10
